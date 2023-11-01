@@ -8,7 +8,7 @@ async function blogdata(slug:string):Promise<any>
 {
     try
     {
-    const datas=await fetch(`https://apidatablog.pranjalkv.com/wp-json/wp/v2/posts?slug=${slug}`,{cache:"no-store"})
+    const datas=await fetch(`${process.env.API_CALL}/posts?slug=${slug}`,{cache:"no-store"})
     const findata=await datas.json();
     console.log("sfsf",findata)
     return findata
@@ -59,7 +59,7 @@ export default async function Slugpage({params}:any)
             </div>
             <div className="sm:flex justify-between block text-center bg-white px-4 py-4 border-b-[0.5px]">
                 <div className="flex justify-center flex-wrap">{blogs[0]?.categories?.map((cats:number)=>
-                <span className="text-orangecol font-semibold mr-1">{getCateg(cats)}</span>)}
+                <span key={cats} className="text-orangecol font-semibold mr-1">{getCateg(cats)}</span>)}
                 </div>
                 <h5 className="tracking-wide text-slate-400">{datFormate(blogs[0]?.date)}</h5>
             </div>
