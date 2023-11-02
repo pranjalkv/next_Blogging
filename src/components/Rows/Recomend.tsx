@@ -1,6 +1,4 @@
 import Link from "next/link";
-// https://apidatablog.pranjalkv.com/wp-json/wp/v2/posts?categories=3&per_page=4&_embed
-
 async function apiRec(recId:number)
 {
     try
